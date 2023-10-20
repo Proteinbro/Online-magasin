@@ -1,0 +1,498 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+/* wrapper delen her gør således at jeg kan få et overlay over min video. Lidt kompliceret process
+da jeg skulle have styr på layering af forskellige faktorer. Z-index bruger jeg da nogle kompenenter 
+skulle være foran andre. Min video skulle ikke være foran overlayet. Ellers ville jeg ikke få den ønskede effekt */
+
+.wrapper {
+    position: absolute;
+}
+.wrapper video {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: -2;
+}
+.wrapper .overlay {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-image: 
+        radial-gradient(circle, rgba(20, 19, 22, 0.771) 100%, rgba(0, 0, 0, 0));
+}
+
+
+#backgroundvideo{
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+/* her opsætter jeg min navbar sådan, at den står som den skal på siden. Så har jeg også en hover-effekt
+over menupunkterne */
+
+#left{
+    list-style-type: none;
+    position: absolute;
+    top: 6%;
+    left: 12%;
+    font-size: 24px;
+}
+
+#right{
+    list-style-type: none;
+    position: absolute;
+    top: 6%;
+    right: 22%;
+    font-size: 24px;
+}
+
+ul li{
+    display: inline-block;
+}
+
+ul li a{
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 25px;
+    border: 1px solid transparent;
+    transition: 0.2s;
+}
+
+ul li a:hover{
+    color: black;
+}
+
+/* logoet bliver stylet */
+
+.logo1 h1{
+    position: absolute;
+    left: 46%;
+    top: 1%;
+    font-size: 65px;
+    color: grey;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.logo2 h1{
+    position: absolute;
+    left: 49%;
+    top: 1%;
+    font-size: 65px;
+    color: whitesmoke;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;;
+}
+
+#line1{
+    width: 42%;
+    position: absolute;
+    top: 13%;
+}
+
+#line2{
+    width: 42%;
+    position: absolute;
+    top: 13%;
+    right: 1%;
+}
+
+.gymcheck h1{
+    width: 42%;
+    position: absolute;
+    top: 12%;
+    color: #fff;
+    left: 44.5%;
+    font-size: 25px;
+}
+
+/* teksten på mit site skal også styles, så det gør jeg her */
+
+.text h1{
+    font-size: 55px;
+    position: absolute;
+    top: 40%;
+    left: 36.5%;
+    color: #fff;
+    padding: 5px 5px;
+    font-variant: small-caps;
+}
+
+.text h2{
+    font-size: 55px;
+    position: absolute;
+    top: 47%;
+    left: 30%;
+    color: #fff;
+    padding: 5px 5px;
+    font-variant: small-caps;
+}
+
+.text h3{
+    font-size: 22px;
+    position: absolute;
+    top: 56%;
+    left: 42.3%;
+    color: #fff;
+    padding: 5px 5px;
+    font-variant: small-caps;
+}
+
+
+/* i dette segment leger jeg lidt med animation og har testet lidt så det blev nogenlunde okay. 
+jeg bruger også keyframes, som får mit element til at "transform" på siden ift. til y-aksen */
+
+.triangledown{
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid white;
+    line-height: 0;
+    position: absolute;
+    top: 90%;
+    left: 48.2%;
+    animation-name: slideDown;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: none;
+}
+
+@keyframes slideDown{
+    from{
+        transform: translateY(-50px);
+    }
+
+    to{
+        transform: translateY(100px)
+    }
+
+}
+
+/* jeg laver her et afsnit så jeg ved, at jeg starter med at kode i en ny section
+
+----------------------------------------------------------------------------------*/
+
+
+#articles{
+    display: grid;
+    place-content: center;
+    min-height: 90vh;
+    perspective: 1000px;
+}
+
+img{
+    max-width: 100%;
+}
+
+.overskrifter{
+    z-index: 1;
+}
+
+.overskrifter h1{
+    top: 11%;
+    left: 42%;
+    position: absolute;
+    font-variant: small-caps;
+    font-size: 40px;
+}
+
+.overskrifter h2{
+    top: 11%;
+    left: 71%;
+    position: absolute;
+    font-variant: small-caps;
+    font-size: 40px;
+}
+
+.overskrifter h3{
+    top: 11%;
+    left: 20%;
+    position: absolute;
+    font-variant: small-caps;
+    font-size: 40px;
+}
+
+
+/* nu til mine tre hover-effekter. Det havde jeg også lidt problemer med, da det var nyt, så jeg skulle
+lige have styr på det til at starte med. Der var meget med at holde styr på akserne (x,y og z).
+Jeg skulle også andre mit perspective til 1000px oppe i min section for at få 3D effekten, når man 
+hover over billederne */
+
+.strength {
+    width: 250px;
+    aspect-ratio: 10 / 15;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: rotate 0.5s;
+    left: 15%;
+    top: 20%;
+  }
+  
+  .strength:hover {
+    rotate: x 15deg;
+  }
+  
+  .strength::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 100;
+    background-image: radial-gradient(circle, transparent 150px, black);
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  
+  .strength:hover::before {
+    opacity: 1;
+  }
+  
+  .strength::after {
+    content: "";
+    position: absolute;
+    inset: 80% 0.5rem 0.5rem;
+    translate: 0;
+    transform: translateZ(-100px);
+    background: black;
+    filter: blur(1rem);
+    z-index: 1;
+    transition: rotate 0.5s, translate 0.5s;
+  }
+  
+  .strength:hover::after {
+    rotate: x calc(15deg * -1);
+    translate: 0 60px;
+  }
+  
+  .strength-background {
+    position: absolute;
+    z-index: 10;
+    height: 100%;
+    object-fit: cover;
+    object-position: -150px center;
+  }
+  
+  .picture2,
+  .picture1 {
+    position: absolute;
+  }
+  
+  
+  .strength:hover .picture2 {
+    transform: translateY(-2rem) translateZ(20px);
+    rotate: x calc(15deg * -1);
+  }
+  
+  .picture1 {
+    scale: 1.25;
+    transform-origin: bottom;
+    opacity: 0;
+    z-index: 100;
+    transition: 0.4s;
+    top: 45%;
+
+  }
+  
+  .strength:hover .picture1{
+    opacity: 1;
+    transform: translateY(-2rem) translateZ(-10px);
+    rotate: x calc(15deg * -1);
+  }
+  
+/* nu gentages denne process to gange mere således jeg har denne effekt ved alle tre af mine artikler */
+
+
+
+.motivation {
+    width: 250px;
+    aspect-ratio: 10 / 15;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: rotate 0.5s;
+    left: 40%;
+    top: 20%;
+  }
+  
+  .motivation:hover {
+    rotate: x 15deg;
+  }
+  
+  .motivation::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 100;
+    background-image: radial-gradient(circle, transparent 150px, black);
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  
+  .motivation:hover::before {
+    opacity: 1;
+  }
+  
+  .motivation::after {
+    content: "";
+    position: absolute;
+    inset: 80% 0.5rem 0.5rem;
+    translate: 0;
+    transform: translateZ(-100px);
+    background: black;
+    filter: blur(1rem);
+    z-index: 1;
+    transition: rotate 0.5s, translate 0.5s;
+  }
+  
+  .motivation:hover::after {
+    rotate: x calc(15deg * -1);
+    translate: 0 60px;
+  }
+  
+  .strength-background {
+    position: absolute;
+    z-index: 10;
+    height: 100%;
+    object-fit: cover;
+    object-position: -150px center;
+  }
+  
+  
+  .motivation:hover .picture2 {
+    transform: translateY(-2rem) translateZ(20px);
+    rotate: x calc(15deg * -1);
+  }
+  
+  
+  .motivation:hover .picture1{
+    opacity: 1;
+    transform: translateY(-0.5rem) translateZ(-10px);
+    rotate: x calc(15deg * -1);
+    scale: 1.99;
+    top: 50%;
+  }
+
+  /* processen gentages en sidste gang */
+
+
+
+
+  .kost {
+    width: 250px;
+    aspect-ratio: 10 / 15;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: rotate 0.5s;
+    left: 65%;
+    top: 20%;
+  }
+  
+  .kost:hover {
+    rotate: x 15deg;
+  }
+  
+  .kost::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 100;
+    background-image: radial-gradient(circle, transparent 150px, black);
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  
+  .kost:hover::before {
+    opacity: 1;
+  }
+  
+  .kost::after {
+    content: "";
+    position: absolute;
+    inset: 80% 0.5rem 0.5rem;
+    translate: 0;
+    transform: translateZ(-100px);
+    background: black;
+    filter: blur(1rem);
+    z-index: 1;
+    transition: rotate 0.5s, translate 0.5s;
+  }
+  
+  .kost:hover::after {
+    rotate: x calc(15deg * -1);
+    translate: 0 60px;
+  }
+  
+  .strength-background {
+    position: absolute;
+    z-index: 10;
+    height: 100%;
+    object-fit: cover;
+    object-position: -150px center;
+  }
+  
+  .kost:hover .picture2 {
+    transform: translateY(-2rem) translateZ(20px);
+    rotate: x calc(15deg * -1);
+  }
+  
+
+  .kost:hover .picture1{
+    opacity: 1;
+    transform: translateY(-2rem) translateZ(-1px);
+    rotate: x calc(2deg * -2.5);
+  }
+
+
+
+  /* sidste afsnit med css kode til forsiden. Her skrives der kode til footer, hvor jeg style den lidt efter
+  det vi lærte på klassen, hvor vi kodede sammen. Jeg har stylet den, så den passer til mit site */
+
+  .footer{
+    background-color: rgb(57, 57, 57);
+    position: absolute;
+    width: 100%;
+}
+
+.footer, .socials{
+    text-align: center;
+    padding-bottom: 15px;
+    color: #fff;
+}
+
+.socials a{
+    font-size: 22px;
+    color: inherit;
+    width: 35px;
+    height: 35px;
+    line-height: 50px;
+    display: inline-block;
+    text-align: center;
+    margin: 0 5px;
+    opacity: 0.5;
+    transition: 0.25s;
+}
+
+.footer ul{
+    margin-top: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.footer p{
+    font-size: 12px;
+}
+
+

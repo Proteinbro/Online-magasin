@@ -1,0 +1,181 @@
+<!-- i alle mine html filer har jeg optimeret mine images fra jpg og png til webp, da det gør hjemmesiden 
+hurtigere at "load"-->
+
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymCheck</title>
+    
+        <!-- her referere jeg selvfølgelig til mit css dokument -->
+    <link rel="stylesheet" href="/Forside/css/style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    
+</head>
+
+<body>
+    <header>
+
+        <!-- i den kommende del opbygger jeg baggrunden til forsiden. Derfor laver jeg en section til at starte med-->
+        <section id="backgroundvideo">
+
+            <!-- den her div styre at der kommer en gradient på min baggrundsvideo-->
+            <div class="wrapper">
+                <div class="overlay"></div>
+                    <div class="gradient">
+                        <video autoplay muted loop>
+                            <source src="/Forside/images/træningsvideo.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+            <!-- jeg laver to klasser til min navbar således det er nemmere at style dem i css-->
+            <div class="leftnavbar">
+                <nav>
+                    <ul id="left">
+                        <li><a href="/Artikel1/index.html">Styrke</a></li>
+                        <li><a href="/Artikel2/index.html">Motivation</a></li>
+                        <li><a href="/Artikel3/index.html">Kost</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="rightnavbar">
+                <nav>
+                    <ul id="right">
+                        <li><a href="#">Partnere</a></li>
+                        <li><a href="#">Kontakt</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+
+
+
+            <!-- her laver jeg mit logo og gør sådan at det også er "clickable"-->
+                <a href="/Forside/index.html">
+                    <div class="logo">
+                        <div class="logo1">
+                            <h1>C</h1>
+        
+                        </div>
+        
+                        <div class="logo2">
+                            <h1>G</h1>
+        
+                        </div>
+
+                    </div>
+                        
+                </a>
+
+
+            <div class="gymcheck">
+                <hr id="line1">
+
+                <h1> GymCheck </h1>
+
+                <hr id="line2">
+            </div>
+
+            <div class="text">
+                <h1>Forny din viden</h1>
+
+                <h2>indenfor styrketræning</h2>
+
+                <h3>Evolutionær træning</h3>
+            </div>
+
+            <div class="triangledown"></div>
+
+
+        </section>
+
+        <!-- jeg laver her en ny section for at holde styr på næste del af designet til forsiden-->
+
+        <section id="articles">
+
+            <div class="overskrifter">
+                <h1>motivation</h1>
+                <h2>kost</h2>
+                <h3>styrke</h3>
+                
+            </div>
+
+            <!-- det kommende stykke kode sætter mine tre artikel-figurer i spil i denne section.
+            Jeg har et billede som baggrund og et billede, der kommer frem når man hover over baggrunden.
+            Jeg gør det også muligt at kunne trykke på dem via. et anker-->
+
+            <div class="strength">
+                
+                <a href="/Artikel1/index.html">
+                    <img class="picture1" src="/Forside/images/bicepcurl.webp" alt="">
+
+                
+
+                <img class="strength-background" src="/Forside/images/background.webp" alt="" >
+
+                    
+                </a>
+                
+
+            </div>
+
+            <div class="motivation">
+
+                <a href="/Artikel2/index.html">
+                    <img class="picture1" src="/Forside/images/zyzz.webp" alt="">
+                
+
+                    <img class="strength-background" src="/Forside/images/hoodie.webp" alt="" >
+
+                </a>
+                
+            </div>
+
+            <div class="kost">
+
+                <a href="/Artikel3/index.html">
+                    <img class="picture1" src="/Forside/images/onlywhey.webp" alt="">
+                
+
+                    <img class="strength-background" src="/Forside/images/whey.webp" alt="">
+                </a>
+
+            </div>
+            
+
+        </section>
+
+    </header>
+
+
+    <!-- denne kode er til min footer, hvor jeg har taget lidt inspiration i den footer, vi lavede på klassen
+    og har justeret den til mit website. Her tager jeg fat i det stylesheet, som jeg "kalder" opppe i <head>-->
+
+    <footer class="footer">
+        <div class="socials">
+            <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+
+        </div>
+
+        <ul>
+            <li><a href="">Terms & Conditions</a></li>
+            <li><a href="">Terms of Use</a></li>
+            <li><a href="">Privacy Notice</a></li>
+            <li><a href="">Cookie Policy</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+
+        <p class="copyright">@ 2023 GymCheck</p>
+
+    </footer>
+
+    
+</body>
+</html>
